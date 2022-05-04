@@ -4,6 +4,8 @@
     "express": "^4.18.1",
     "mongoclient": "^1.0.3",
     "mongodb": "^4.5.0",
-    "nodemon": "^2.0.16"
+    "mongoose": "^6.3.2",
+    "nodemon": "^2.0.16",
+    "router": "^1.3.7"
   }
 }
