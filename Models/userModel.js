@@ -1,9 +1,7 @@
-const { MongoClient } = require("mongodb")
-
-var UserSchema = new MongoClient.Schema({
-    id: Number,
+const {Schema, model} = require('mongoose');
+const userSchema =new Schema({
     username: String,
     email: String
-}, {timestamps: true});
+}, {timestamps: true},{autoCreate:true});
 
-MongoClient.model('User', UserSchema);
+module.exports = model('User', userSchema);
