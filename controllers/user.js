@@ -15,7 +15,18 @@ const createUser = async (req, res, next) => {
     }
 }
 
-const updateUser = async (req, res, next) => {
+const updateOneUser = async (req, res, next) => {
+    try{
+        const {username, email} = req.body
+        const user = await userModel.updateOne({username: username}, {email:email})
+        res.status(200).send(user);
+    }catch (err){
+        console.log(err)
+        res.status(404).send(err)
+    }
+}
+
+const updateManyUser = async (req, res, next) => {
     try{
         const {username, email} = req.body
         const user = await userModel.updateMany({username: username}, {email:email})
@@ -25,4 +36,5 @@ const updateUser = async (req, res, next) => {
         res.status(404).send(err)
     }
 }
-module.exports = {createUser, updateUser}
+
+module.exports = {createUser, updateOneUser, updateManyUser}
