@@ -12,6 +12,7 @@ app.use(express.json())
 app.use(bodyParser.urlencoded({extended: false}))
 
 app.post("/add", userAPI.createUser);
+app.post("/update", userAPI.updateUser);
 
 db.setup().then(()=>{
     app.listen(PORT,()=>{
