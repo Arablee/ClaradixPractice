@@ -15,4 +15,13 @@ const createUserCar = async (req, res, next) => {
     }
 }
 
-module.exports = {createUserCar}
+const findOneCar = async () => {
+      const car = await userCarModel.findOne({brand:'Mercedes'}).populate('number').then((doc)=>{
+          return {name:doc.number.username,brand:doc.brand};
+      }).catch((error)=>{
+          return error
+      })
+    console.log(car)
+}
+
+module.exports = {createUserCar, findOneCar}

@@ -2,8 +2,8 @@ const {Schema, model} = require("mongoose");
 const userModel = require("./userModel");
 
 const userCarSchema =new Schema({
-    brand: String,
-    model: String,
+    brand: {type:String},
+    model: {type:String},
     number: { type: Schema.Types.ObjectId, ref: 'User' },
 }, {timestamps: true},{autoCreate:true});
 
